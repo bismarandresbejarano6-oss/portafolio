@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio & Currículum Vitae | Bismar Andres Bejarano</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos CSS Profesionales Integrados -->
+  <style>
+    :root {
+      /* Modo Claro - Profesional y Limpio */
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-alt: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --color-brand: #2563eb;
+      --color-brand-hover: #1d4ed8;
+      --border-color: #e2e8f0;
+      --color-error: #ef4444;
+      --color-success: #10b981;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      /* Modo Oscuro - Elegante y Moderno */
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-alt: #1f2937;
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --border-color: #374151;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Reset Global */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header & Navegación */
+    .header {
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--color-brand);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-brand);
+    }
+
+    .btn-theme {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .btn-theme:hover {
+      transform: rotate(15deg) scale(1.05);
+      border-color: var(--color-brand);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Secciones Generales & Hero */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .bg-alt {
+      background-color: var(--bg-alt);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-section {
+      padding: 6rem 0 5rem;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.05), transparent 50%);
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .badge-status {
+      display: inline-block;
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--color-brand);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .highlight {
+      color: var(--color-brand);
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Botones Interactivos */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background-color: var(--color-brand);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-alt);
+      border-color: var(--color-brand);
+      transform: translateY(-2px);
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* Sobre Mí & Habilidades */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h3, .skills-wrapper h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .skills-wrapper {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background-color: var(--bg-alt);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-brand), #60a5fa);
+      border-radius: 10px;
+      transition: width 1.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    /* Línea de Tiempo (Experiencia) */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      border-left: 2px solid var(--border-color);
+      padding-left: 2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: calc(-2rem - 6px);
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--color-brand);
+      box-shadow: 0 0 0 4px var(--bg-primary);
+    }
+
+    .timeline-content {
+      background-color: var(--bg-secondary);
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .timeline-content:hover {
+      border-color: var(--color-brand);
+      box-shadow: var(--shadow-md);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--color-brand);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-role {
+      font-size: 1.25rem;
+      margin: 0.3rem 0;
+      font-weight: 700;
+    }
+
+    .timeline-company {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Proyectos Grid */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .proyecto-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proyecto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-brand);
+    }
+
+    .proyecto-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .proyecto-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .proyecto-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .proyecto-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .proyecto-body p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .proyecto-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+      margin-bottom: 1.2rem;
+    }
+
+    .proyecto-tags span {
+      font-size: 0.75rem;
+      background-color: var(--bg-alt);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* Contacto & Formularios */
+    .contacto-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contacto-form {
+      background-color: var(--bg-secondary);
+      padding: 2.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      background-color: var(--bg-secondary);
+    }
+
+    .error-text {
+      color: var(--color-error);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
+    .alert-message {
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.5rem;
+      display: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .alert-message.success {
+      display: block;
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--color-success);
+      border: 1px solid var(--color-success);
+    }
+
+    .alert-message.error {
+      display: block;
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--color-error);
+      border: 1px solid var(--color-error);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        display: none;
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
+
+      .section {
+        padding: 3.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado y Navegación Sticky -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo">Portafolio<span>.dev</span></a>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+        <button id="themeToggle" class="btn-theme" aria-label="Cambiar tema">
+          <span class="theme-icon">🌓</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección Inicio / Hero -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="badge-status">🚀 Disponible para proyectos</span>
+          <h1 class="hero-title">Hola, soy <span class="highlight">Bismar Andres Bejarano</span></h1>
+          <h2 class="hero-subtitle">Desarrollador Web Frontend & Diseñador UI/UX</h2>
+          <p class="hero-description">
+            Especializado en construir aplicaciones e interfaces web modernas, responsivas, accesibles y de alto rendimiento utilizando HTML5, CSS3 y JavaScript moderno (ES6+).
+          </p>
+          <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary">Contáctame</a>
+            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Sobre Mí & Habilidades -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p class="section-subtitle">Conoce mi perfil profesional y competencias técnicas</p>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <h3>Perfil Profesional</h3>
+            <p>
+              Soy un desarrollador apasionado por crear soluciones digitales atractivas y funcionales. Mi enfoque principal está centrado en el desarrollo de código limpio, mantenible y responsivo para optimizar la experiencia del usuario final.
+            </p>
+            <p>
+              Cuento con amplia experiencia en la maquetación de interfaces interactivas, optimización web y consumo eficiente de APIs utilizando Vanilla JavaScript de última generación.
+            </p>
+          </div>
+
+          <div class="skills-wrapper">
+            <h3>Habilidades Técnicas</h3>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>HTML5 / Semántica Web</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>CSS3 / Flexbox / CSS Grid</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>JavaScript (ES6+)</span>
+                <span>85%</span>
+              </div>
+              <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Git & GitHub</span>
+                <span>80%</span>
+              </div>
+              <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Experiencia y Educación -->
+    <section id="experiencia" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title">Experiencia & Educación</h2>
+        <p class="section-subtitle">Mi trayectoria profesional y formación académica</p>
+
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - Presente</span>
+              <h3 class="timeline-role">Desarrollador Web Frontend</h3>
+              <h4 class="timeline-company">Agencia Tecnológica / Freelance</h4>
+              <p>Desarrollo de portafolios, aplicaciones de gestión e interfaces web totalmente adaptables para clientes internacionales.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2023</span>
+              <h3 class="timeline-role">Maquetador Web Junior</h3>
+              <h4 class="timeline-company">Estudio Creativo Digital</h4>
+              <p>Creación de sitios dinámicos, maquetación CSS/HTML accesible y soporte en integraciones JavaScript.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">2019 - 2021</span>
+              <h3 class="timeline-role">Grado / Certificación en Desarrollo Web</h3>
+              <h4 class="timeline-company">Instituto de Tecnología</h4>
+              <p>Formación enfocada en programación estructurada, bases de datos y arquitectura web de cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Proyectos Destacados -->
+    <section id="proyectos" class="section">
+      <div class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <p class="section-subtitle">Algunos de mis trabajos más recientes renderizados dinámicamente</p>
+
+        <div class="proyectos-grid" id="proyectosGrid">
+          <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Formulario de Contacto -->
+    <section id="contacto" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-subtitle">¿Tienes alguna propuesta o proyecto en mente? ¡Escríbeme!</p>
+
+        <div class="contacto-wrapper">
+          <div id="formAlert" class="alert-message"></div>
+
+          <form id="formContacto" class="contacto-form" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre Completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Bismar Andres" required>
+              <span class="error-text" id="errorNombre"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="usuario@ejemplo.com" required>
+              <span class="error-text" id="errorEmail"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="asunto">Asunto *</label>
+              <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje" required>
+              <span class="error-text" id="errorAsunto"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+              <span class="error-text" id="errorMensaje"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 Bismar Andres Bejarano. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript Interactivo -->
+  <script>
+    // Array con los proyectos del portafolio (Renderizado Dinámico)
+    const proyectos = [
+      {
+        titulo: "Plataforma E-Commerce",
+        descripcion: "Tienda online responsiva con carrito de compras dinámico y filtro de productos.",
+        tecnologias: ["HTML5", "CSS Grid", "JavaScript ES6"],
+        imagen: "https://placehold.co/600x400/2563eb/ffffff?text=E-Commerce",
+        enlace: "#"
+      },
+      {
+        titulo: "Dashboard de Métricas",
+        descripcion: "Panel de administración visual y adaptativo para visualización de datos.",
+        tecnologias: ["JS", "CSS Flexbox", "APIs"],
+        imagen: "https://placehold.co/600x400/0f172a/ffffff?text=Dashboard",
+        enlace: "#"
+      },
+      {
+        titulo: "Aplicación de Tareas",
+        descripcion: "Herramienta interactiva con almacenamiento local en navegador (LocalStorage).",
+        tecnologias: ["JavaScript", "HTML5", "CSS3"],
+        imagen: "https://placehold.co/600x400/10b981/ffffff?text=Task+App",
+        enlace: "#"
+      }
+    ];
+
+    // Inicializar el script una vez cargado el DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizarProyectos();
+      inicializarMenu();
+      inicializarTema();
+      inicializarFormulario();
+    });
+
+    // Renderizar tarjetas de proyectos dinámicamente
+    function renderizarProyectos() {
+      const contenedor = document.getElementById('proyectosGrid');
+      if (!contenedor) return;
+
+      contenedor.innerHTML = '';
+
+      proyectos.forEach(proyecto => {
+        const card = document.createElement('article');
+        card.className = 'proyecto-card';
+        card.innerHTML = `
+          <img src="${proyecto.imagen}" alt="${proyecto.titulo}" loading="lazy">
+          <div class="proyecto-body">
+            <h3>${proyecto.titulo}</h3>
+            <p>${proyecto.descripcion}</p>
+            <div class="proyecto-tags">
+              ${proyecto.tecnologias.map(tech => `<span>${tech}</span>`).join('')}
+            </div>
+            <a href="${proyecto.enlace}" class="btn btn-secondary" style="text-align: center;">Ver Proyecto</a>
+          </div>
+        `;
+        contenedor.appendChild(card);
+      });
+    }
+
+    // Control del menú responsivo (Hamburguesa)
+    function inicializarMenu() {
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+    }
+
+    // Modo Claro / Oscuro con data-theme
+    function inicializarTema() {
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlElement = document.documentElement;
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = htmlElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          htmlElement.setAttribute('data-theme', newTheme);
+        });
+      }
+    }
+
+    // Validación de Formulario en tiempo real y al enviar
+    function inicializarFormulario() {
+      const form = document.getElementById('formContacto');
+      const alertBox = document.getElementById('formAlert');
+
+      if (!form) return;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        alertBox.className = 'alert-message';
+        alertBox.textContent = '';
+        limpiarErrores();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const asunto = document.getElementById('asunto').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        let esValido = true;
+
+        if (nombre === '') {
+          mostrarError('errorNombre', 'Por favor ingresa tu nombre.');
+          esValido = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === '') {
+          mostrarError('errorEmail', 'Por favor ingresa tu correo electrónico.');
+          esValido = false;
+        } else if (!emailRegex.test(email)) {
+          mostrarError('errorEmail', 'Ingresa un correo electrónico válido.');
+          esValido = false;
+        }
+
+        if (asunto === '') {
+          mostrarError('errorAsunto', 'Por favor ingresa el asunto.');
+          esValido = false;
+        }
+
+        if (mensaje === '') {
+          mostrarError('errorMensaje', 'Por favor escribe tu mensaje.');
+          esValido = false;
+        }
+
+        if (esValido) {
+          alertBox.textContent = '¡Gracias! Tu mensaje ha sido enviado correctamente.';
+          alertBox.classList.add('success');
+          form.reset();
+        } else {
+          alertBox.textContent = 'Por favor corrige los errores antes de continuar.';
+          alertBox.classList.add('error');
+        }
+      });
+    }
+
+    function mostrarError(elementId, mensaje) {
+      const errorSpan = document.getElementById(elementId);
+      if (errorSpan) {
+        errorSpan.textContent = mensaje;
+      }
+    }
+
+    function limpiarErrores() {
+      const errores = document.querySelectorAll('.error-text');
+      errores.forEach(span => span.textContent = '');
+    }
+  </script>
+</body>
+</html>
